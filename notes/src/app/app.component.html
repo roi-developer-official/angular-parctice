@@ -1,0 +1,8 @@
+<nav class="head-nav"><p>Notes-Mate</p></nav>
+<app-search-input (searchVal)="searchValChanged($event)"></app-search-input>
+<app-notes 
+[show]="show" 
+[notes]="notes"
+(deleteNote)="onNoteDeleted($event)"
+></app-notes>
+<app-add-note (showNotes)="setShowNotes($event)" (noteAdded)="onNoteAdded($event)"></app-add-note>
