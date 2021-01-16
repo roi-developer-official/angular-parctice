@@ -1,0 +1,28 @@
+<nav>
+  <p>Drag-And-Drop</p>
+</nav>
+<main>
+
+    <div class="containers"  cdkDropListGroup>
+      <div 
+      [cdkDropListData]="list"
+      (cdkDropListDropped)="drop($event)"
+      *ngFor="let list of lists"
+      cdkDropList="1"
+      class="container"
+      >
+      <h3>{{list.title}}</h3>
+      <div class="items">
+        <div 
+        [cdkDrag] 
+        *ngFor="let item of list.items" 
+        class="item"
+        [cdkDragData]="item"
+        >
+          <p>{{item}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
