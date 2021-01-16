@@ -1,0 +1,28 @@
+    <form (ngSubmit)="onAddBudget(f)" #f="ngForm">
+        <div class="container mt-4">
+            <div class="row">
+                <div class="input-group">
+                    <input 
+                    type="number" 
+                    class="form-control col-2" 
+                    name="amount" 
+                    placeholder="amount" 
+                    ngModel
+                    required
+                    >
+                    <input 
+                    type="text" 
+                    class="form-control col-5" 
+                    name="description" 
+                    ngModel
+                    placeholder="description"
+                    required
+                     >
+                    <div class="input-group-append">
+                        <button [disabled]="!f.valid" type="submit" class="btn btn-outline-secondary">Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+    </form>

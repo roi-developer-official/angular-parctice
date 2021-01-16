@@ -1,0 +1,15 @@
+<app-header [sum]="sum"></app-header>
+<app-add-budget (budgetAdded)="onBudgetAdded($event)"></app-add-budget>
+<app-budgets
+(onEditBudget)="onEditBudget($event)"
+(onDeleteBudget)="onBudgetDeleted($event)"
+ [expensses]="expensses"
+ [incomes]="incomes"
+ ></app-budgets>
+ <app-edit-budget 
+ *ngIf="editMode"
+ [amount]="amount"
+ (budgetEditted)="onEditSubmitted($event)"
+ (closeEditing)="onCancelEdit()"
+ [description]="description"
+ ></app-edit-budget>

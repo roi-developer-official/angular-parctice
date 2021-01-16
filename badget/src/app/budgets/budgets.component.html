@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row">
+        <div class="col-3">
+            <div *ngIf="incomes.length > 0" class="text-success">INCOME</div>
+        </div>
+        <div class="col-3">
+            <div *ngIf="expensses.length > 0" class="text-danger">EXPENSESS</div>
+        </div>
+    </div>
+</div>
+<div class="container badgets-container">
+    <div class="row content-container m-2">
+        <div *ngFor="let budget of incomes" (click)="editBudget(budget.id)" class="col m-1 p-0" > 
+            <div class="container content" style="color:rgb(49, 167, 49)" >
+                <div class="close" (click)="deleteBudget($event,budget.id,budget.amount)">&times;</div>
+                <span>{{budget.description}}</span>
+                <span class="badge badge-success">{{budget.amount}}</span>
+            </div>
+        </div>
+    </div>
+    
+    <div  class="row content-container m-2">
+        <div 
+        *ngFor="let budget of expensses" 
+        (click)="editBudget(budget.id)"  
+        class="col m-1 p-0"
+        >
+            <div class="container content" style="color:#c73939">
+                <div class="close" (click)="deleteBudget($event,budget.id,budget.amount)">&times;</div>
+                <span>{{budget.description}}</span>
+                <span class="badge badge-danger">{{budget.amount}}</span>
+            </div>
+        </div>
+    </div>
+</div>
