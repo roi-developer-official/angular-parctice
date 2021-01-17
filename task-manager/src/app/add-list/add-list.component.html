@@ -1,0 +1,23 @@
+<div class="container w-25 p-3">
+    <form #f=ngForm (ngSubmit)="listAdd(f)">
+        <div class="row pl-4">
+            <h6 class="w-100 ">{{title}}</h6>
+            <input 
+            class="form-control col-11" 
+            ngModel
+            name="title"
+            placeholder="name" 
+            type="text">
+        </div>
+        <div class="row d-flex justify-content-end mr-3 mt-2">
+            <button 
+            type="button"
+            (click)="onCancelAdd()"
+            class="btn btn-outline-secondary h-75 w-0">cancel</button>
+            <button 
+            type="submit" 
+            class="btn btn-secondary w-0"
+            >confirm</button>
+        </div>
+    </form>
+</div>

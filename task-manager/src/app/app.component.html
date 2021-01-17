@@ -1,0 +1,19 @@
+<main>
+  <!-- <app-sign-in></app-sign-in> -->
+  <app-add-list 
+  [title]="addTitle"
+  [id]="list ? list.id : null"
+  (addList)="onAddConfirm($event)" 
+  *ngIf="showAddList || showAddTask || showEditList"
+  (cancelAdd)="cancelAdd()"
+  ></app-add-list>
+  <app-lists 
+  [lists]="lists"
+  [selectedListItems]="items"
+  [selectedList]="selectedList"
+  *ngIf="!showAddList && !showAddTask && !showEditList" 
+  (listSelected)="onSelectedList($event)"
+  (addListE)="onAddHandler()"
+  (addTaskE)="onAddTaskHandler()"
+  ></app-lists>
+</main>

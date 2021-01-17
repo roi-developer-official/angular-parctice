@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row">
+        <div class="col-4 bg-white p-2 d-flex flex-column justify-content-between">
+            <h5 class="m-3 text-success">LISTS</h5>
+            <div class="row mt-2 d-flex flex-column align-items-center">
+                <div 
+                *ngFor="let list of lists" 
+                class="list"
+                (click)="showListItems(list)"
+                >{{list.title}}</div>
+            </div>
+            <button
+             class="btn btn-success w-75 align-self-center mb-2"
+             (click)="addList()"
+             >+ Add list</button>
+        </div>
+        <div class="col-8 d-flex flex-column align-items-center" style="background-color: hsl(0, 0%, 97%);">
+            <h5 class="align-self-start m-4 position-absolute text-success">Tasks</h5>
+            <app-list-items [items]="selectedListItems"></app-list-items>
+        </div>
+        <div class="add-list-item">
+            <button 
+            class="btn btn-success"
+            (click)="addTask()"
+            >
+                +
+            </button>
+        </div>
+    </div>
+</div>

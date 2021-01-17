@@ -1,0 +1,8 @@
+<div class="container">
+    <div *ngIf="items.length === 0">
+        <p class="text-secondary">No tasks found</p>
+    </div>
+    <div *ngFor="let item of items" class="row">
+        <p class="col-8">{{item.description}}</p>
+    </div>
+</div>
