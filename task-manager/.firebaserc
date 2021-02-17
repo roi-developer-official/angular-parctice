@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "ang-task-manager": {
+      "hosting": {
+        "task-manager": [
+          "ang-task-manager"
+        ]
+      }
+    }
+  }
+}

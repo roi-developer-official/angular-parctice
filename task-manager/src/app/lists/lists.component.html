@@ -1,4 +1,4 @@
-<div class="container">
+<div *ngIf="show" class="container">
     <div class="row">
         <div class="col-4 bg-white p-2 d-flex flex-column justify-content-between">
             <h5 class="m-3 text-success">LISTS</h5>
@@ -6,25 +6,40 @@
                 <div 
                 *ngFor="let list of lists" 
                 class="list"
-                (click)="showListItems(list)"
+                [ngClass]="{'selected' : list.id === selectedListId }"
+                (click)="showListItems(list.id)"
                 >{{list.title}}</div>
             </div>
             <button
              class="btn btn-success w-75 align-self-center mb-2"
-             (click)="addList()"
+             (click)="addListTriggered()"
              >+ Add list</button>
         </div>
         <div class="col-8 d-flex flex-column align-items-center" style="background-color: hsl(0, 0%, 97%);">
             <h5 class="align-self-start m-4 position-absolute text-success">Tasks</h5>
-            <app-list-items [items]="selectedListItems"></app-list-items>
+           <button (blur)="onBlur()" (click)="toggleSettings()" class="btn settings-btn"></button>
+               <ul *ngIf="showSettings" class="setting_items">
+                   <li (mousedown)="editListTriggered()" class="setting-item text-secondary">edit</li>
+                   <li (mousedown)="deleteListTriggered()" class="setting-item text-danger">delete</li>
+               </ul>
+            <app-list-items 
+            [id]="selectedListId"
+            (editPressed)="editTaskTriggered($event)"
+            (deletePressed)="deleteTaskTriggred($event)"
+            ></app-list-items>
         </div>
-        <div class="add-list-item">
-            <button 
-            class="btn btn-success"
-            (click)="addTask()"
+        <div *ngIf="selectedListId" class="add-list-item">
+            <span 
+            class="add-btn"
+            (click)="addTaskTriggerd()"
             >
-                +
-            </button>
+            </span>
         </div>
     </div>
 </div>
+<app-add-list
+[title]="title"
+(confirm)="onConfirm($event)" 
+(cancel)="onCancel()"
+*ngIf="!show"
+></app-add-list>

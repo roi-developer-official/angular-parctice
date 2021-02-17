@@ -1,8 +1,17 @@
-<div class="container">
-    <div *ngIf="items.length === 0">
-        <p class="text-secondary">No tasks found</p>
+<div class="container" >
+    <div *ngIf="items && items.length === 0">
+        <p class="text-secondary">No tasks</p>
     </div>
-    <div *ngFor="let item of items" class="row">
-        <p class="col-8">{{item.description}}</p>
+    <div 
+    (click)="checkTask($event,item.id)"  
+    [ngClass]="{'checked' : isChecked(item.id)}" 
+    *ngFor="let item of items" 
+    class="col-sm-8 col-md-12 list-item"
+    >
+        {{item.description}}
+        <div class="icons-container">
+            <span (click)="editItem(item.id)" class="edit-item"></span>
+            <span (click)="deleteItem(item.id)" class="delete-item"></span>
+        </div>
     </div>
 </div>

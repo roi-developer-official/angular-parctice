@@ -6,19 +6,53 @@
     align-items: center;
     margin-top:80px;
 }
-.row{
-    background-color: white;
-    padding-left: 10px;
-    height: 45px;
-    width:100%;
+
+.icons-container{
+    width:60px;
+    height: 40px;
     display: flex;
-    justify-items: center;
     align-items: center;
-    margin-bottom:1.5px;
-    box-shadow: 0 0 0 .5px rgba(0,0,0,0.1);
+    padding: 2px;
+    justify-content: space-evenly; 
+}
+.edit-item{
+    width:18px;
+    height: 18px;
+    background-position: center;
+    background: url('../../icons/create.svg');
     cursor: pointer;
 }
-.row p{
-    font-size: 14px;
-    margin: 0;
+.delete-item{
+    width:18px;
+    height: 18px;
+    background-position: center;
+    background: url('../../icons/delete.svg');
+    cursor: pointer;
+}
+
+.checked{
+    text-decoration: line-through;
+}
+.clicked{
+    animation: scale .3s alternate-reverse;
+}
+
+@keyframes scale {
+    from{
+        transform: scale(1);
+    }
+    to{
+        transform: scale(.95);
+
+    }
+}
+
+.list-item{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    box-shadow: 0 0 0 1px #eeeeee;
+    cursor: pointer;
+    margin:2px 0;
 }
