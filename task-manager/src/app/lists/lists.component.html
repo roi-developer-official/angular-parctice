@@ -1,4 +1,4 @@
-<div *ngIf="show" class="container">
+<div *ngIf="show" class="container col-12 col-xs-12 col-md-12 col-lg-10 col-xl-8" >
     <div class="row">
         <div class="col-4 bg-white p-2 d-flex flex-column justify-content-between">
             <h5 class="m-3 text-success">LISTS</h5>
@@ -15,7 +15,7 @@
              (click)="addListTriggered()"
              >+ Add list</button>
         </div>
-        <div class="col-8 d-flex flex-column align-items-center" style="background-color: hsl(0, 0%, 97%);">
+        <div class="col-8 d-flex flex-column" style="background-color: hsl(0, 0%, 97%);">
             <h5 class="align-self-start m-4 position-absolute text-success">Tasks</h5>
            <button (blur)="onBlur()" (click)="toggleSettings()" class="btn settings-btn"></button>
                <ul *ngIf="showSettings" class="setting_items">

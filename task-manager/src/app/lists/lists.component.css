@@ -1,6 +1,5 @@
 .container{
     height: 550px;
-    width:820px;
     margin-top: 60px;
 }
 .row{
@@ -12,7 +11,9 @@
 .list{
     display: flex;
     align-items: center;
-    height: 35px;
+    flex-wrap: wrap;
+    height: fit-content;
+    min-height: 32px;
     width:80%;
     font-size: 14px;
     padding-left:10px;
